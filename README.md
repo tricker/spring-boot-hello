@@ -16,3 +16,10 @@
     docker login
     docker tag trickito/gs-spring-boot trickito/gs-spring-boot:latest
     docker push trickito/gs-spring-boot:latest
+
+## deploy to OpenShift
+
+    oc new-project myproject
+    oc new-app trickito/gs-spring-boot:latest --name hello-spring-boot
+    oc expose dc/hello-spring-boot --port=8080
+    # then create route in web ui
